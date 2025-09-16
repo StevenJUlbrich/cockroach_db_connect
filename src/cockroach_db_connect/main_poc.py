@@ -17,7 +17,7 @@ PORT = 26300
 DB = "defaultdb"
 SPN = "cockroachdb"
 
-def ensure_kerberos_ticket():
+def ensure_kerberos_ticket() -> bool:
     """Quick check that Kerberos ticket exists"""
     ticket_cache = r"C:\Users\N123456\krb5cc_N123456"
     if not os.path.exists(ticket_cache):
@@ -26,7 +26,7 @@ def ensure_kerberos_ticket():
         return False
     return True
 
-def get_connection():
+def get_connection() :
     """Get a CockroachDB connection via JDBC with Kerberos"""
     
     # Verify ticket before attempting connection
